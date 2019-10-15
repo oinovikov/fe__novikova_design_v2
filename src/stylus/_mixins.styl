@@ -1,0 +1,203 @@
+$mixinPropsPrefixes = {
+  border-radius: webkit moz
+  box-sizing: webkit moz
+  box-shadow: webkit moz
+  appearance: webkit moz
+  transform: webkit moz ms o
+}
+
+$mixinMsFlexboxVals = {
+  flex-start: start,
+  flex-end: end,
+  space-between: justify,
+  space-around: distribute
+}
+
+/* some different properties */
+border-radius()
+  getXBrowserProps(arguments, webkit moz)
+
+box-sizing(val)
+  getXBrowserProps(val, webkit moz)
+
+box-shadow()
+  getXBrowserProps(arguments, webkit moz)
+
+appearance(val)
+  getXBrowserProps(val, webkit moz)
+
+text-size-adjust(val)
+  getXBrowserProps(val, webkit moz ms)
+
+text-overflow(val)
+  getXBrowserProps(val, ms o)
+
+word-wrap(val)
+  getXBrowserProps(val, ms)
+
+hyphens(val)
+  getXBrowserProps(val, webkit moz ms)
+
+font-kerning(val)
+  getXBrowserProps(val, webkit)
+
+user-select(val)
+  getXBrowserProps(val, webkit khtml moz ms)
+
+backface-visibility()
+  getXBrowserProps(arguments, webkit moz ms o)
+
+position(val)
+  if val == sticky
+    position -webkit-sticky
+    position sticky
+  else
+    position val
+
+
+/* crossbrowser display flex */
+display(val)
+  if val == flex
+    display -webkit-flex
+    display -ms-flex
+    display flex
+  else if val == inline-flex
+    display -webkit-inline-flex
+    display -ms-inline-flexbox
+    display inline-flex
+  else
+    display val
+
+flex()
+  getXBrowserProps(arguments, webkit ms)
+
+flex-grow(val)
+  -webkit-flex-grow val
+  -ms-flex val
+  flex-grow val
+
+flex-shrink()
+  -webkit-flex-shrink val
+  -ms-flex val
+  flex-shrink val
+
+flex-basis(val)
+  getXBrowserProps(val, webkit)
+
+flex-flow()
+  -webkit-flex-flow arguments
+  -ms-flex-flow arguments[0] (arguments[1] and arguments[1] == nowrap ? none : arguments[1])
+  flex-flow arguments
+
+flex-direction(val)
+  getXBrowserProps(val, webkit ms)
+
+flex-wrap(val)
+  -webkit-flex-wrap val
+  -ms-flex-wrap val == nowrap ? none : val
+  flex-wrap val
+
+justify-content(val)
+  -webkit-justify-content val
+  -ms-flex-pack $mixinMsFlexboxVals[val] ? $mixinMsFlexboxVals[val] : val
+  justify-content val
+
+align-items(val)
+  -webkit-align-items val
+  -ms-flex-align $mixinMsFlexboxVals[val] ? $mixinMsFlexboxVals[val] : val
+  align-items val
+
+align-content()
+  -webkit-align-content arguments
+  -ms-flex-line-pack $mixinMsFlexboxVals[val] ? $mixinMsFlexboxVals[val] : val
+  align-content arguments
+
+align-self(val)
+  -webkit-align-self val
+  -ms-flex-item-align $mixinMsFlexboxVals[val] ? $mixinMsFlexboxVals[val] : val
+  align-self val
+
+order(val)
+  getXBrowserProps(val, webkit ms-flex)
+
+
+/* crossbrowser animation properties */
+animation()
+  getXBrowserProps(arguments, webkit moz o)
+
+animation-delay()
+  getXBrowserProps(arguments, webkit moz o)
+
+animation-direction()
+  getXBrowserProps(arguments, webkit moz o)
+
+animation-duration()
+  getXBrowserProps(arguments, webkit moz o)
+
+animation-iteration-count()
+  getXBrowserProps(arguments, webkit moz o)
+
+animation-name()
+  getXBrowserProps(arguments, webkit moz o)
+
+animation-play-state()
+  getXBrowserProps(arguments, webkit moz o)
+
+animation-timing-function()
+  getXBrowserProps(arguments, webkit moz o)
+
+animation-fill-mode()
+  getXBrowserProps(arguments, webkit moz o)
+
+
+/* crossbrowser transition properties */
+transition()
+  getXBrowserProps(arguments, webkit moz o)
+
+transition-delay()
+  getXBrowserProps(arguments, webkit moz o)
+
+transition-duration()
+  getXBrowserProps(arguments, webkit moz o)
+
+transition-property()
+  getXBrowserProps(arguments, webkit moz o)
+
+transition-timing-function()
+  getXBrowserProps(arguments, webkit moz o)
+
+
+/* crossbrowser transform properties */
+transform()
+  getXBrowserProps(arguments, webkit moz ms o)
+
+transform-origin()
+  getXBrowserProps(arguments, webkit moz ms o)
+
+transform-style()
+  getXBrowserProps(arguments, webkit moz ms o)
+
+
+/* crossbrowser perspective properties */
+perspective()
+  getXBrowserProps(arguments, webkit moz ms o)
+
+perspective-origin()
+  getXBrowserProps(arguments, webkit moz ms o)
+
+
+/* crossbrowser columns properties */
+columns()
+  getXBrowserProps(arguments, webkit moz)
+
+column-count()
+  getXBrowserProps(arguments, webkit moz)
+
+column-rule()
+  getXBrowserProps(arguments, webkit moz)
+
+column-width()
+  getXBrowserProps(arguments, webkit moz)
+
+column-fill()
+  getXBrowserProps(arguments, webkit moz)
