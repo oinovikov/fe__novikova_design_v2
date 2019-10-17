@@ -1,0 +1,83 @@
+// main
+
+.main
+  position: relative
+  flex: 1 1 100%
+  display: flex
+  flex-flow: column nowrap
+  justify-content: stretch
+  align-content: stretch
+  align-items: stretch
+  width: 100%;
+  min-height: 100%
+  padding: 2vw 0 0
+  margin: 0
+  background-color: #eee
+  user-select: none
+  cursor: default
+
+  &__list
+    position: relative
+    list-style: none
+    flex: 1 1 auto
+    // display: flex
+    flex-flow: column nowrap
+    justify-content: stretch
+    align-content: stretch
+    align-items: stretch
+    min-height: 100%
+    padding: 0
+    margin: 0
+    overflow: hidden
+
+  &__item
+    position: relative
+    flex: 1 1 auto
+    display: flex
+    flex-flow: row nowrap
+    justify-content: flex-start
+    align-content: center
+    align-items: center
+    // height: 1em
+    padding: 0
+    margin: 0
+    font: normal normal normal 12vw/1 s($font.family)
+    text-align: left
+    text-transform: uppercase
+    letter-spacing: .024em
+    white-space: nowrap
+    transition: all .24s cubic-bezier(.64, 2.4, 0, .32)
+    transform-origin: center bottom
+
+    &_state_hover:nth-child(even)
+    &_state_hover:nth-child(odd)
+      transition-duration: .4s
+      transition-timing-function: ease
+
+    &_state_hover:nth-child(even)
+      transform: skewX(-15deg) scaleX(1.2)
+
+    &_state_hover:nth-child(odd)
+      transform: skewX(15deg) scaleX(1.2)
+
+  &__link
+    position: relative
+    display: inline-block
+    padding: 0 1vw
+    margin: 0
+    color: #333
+    text-decoration: none
+    cursor: pointer
+    transform-origin: left bottom
+    // transition: all .24s linear
+
+    &:hover
+      color: #222
+
+  &__label
+    position: relative
+    display: inline-block
+
+    // &::before
+    //   content: '#'
+    //   opacity: .64

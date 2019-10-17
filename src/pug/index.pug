@@ -14,8 +14,8 @@ html(class=$pageRootClassName, lang="ru")
         script(src="js/common.js")
 
         title Document
-    body(class=`${$pageRootClassName}__body`, itemid="localhost:8000", itemscope, itemtype="http://schema.org/SocialMediaPosting")
-        include sections/header
+    body(class=`${$pageRootClassName}__body`)
+        //- include sections/header
         include sections/main
-        include sections/footer
-    include sections/shadows
+        //- include sections/footer
+    //- include sections/shadows
